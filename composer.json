@@ -3,6 +3,7 @@
         "slim/slim": "^3.0",
         "firebase/php-jwt": "^5.0",
         "tuupola/slim-basic-auth": "^2.3",
-        "tuupola/slim-jwt-auth": "^2.3"
+        "tuupola/slim-jwt-auth": "^2.3",
+        "tuupola/cors-middleware": "^0.6.0"
     }
 }

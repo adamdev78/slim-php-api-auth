@@ -93,6 +93,7 @@ $app->post('/authenticate', function(Request $request, Response $response){
             $stmt = $db->query($sql);
             $customer = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($customer['password']==$password){
+                
                 $MyJWT=$this->JWT;
                 $now = new DateTime();
                 $future = new DateTime("now +20 minutes");
@@ -114,8 +115,13 @@ $app->post('/authenticate', function(Request $request, Response $response){
 
 
 
-            }
-        } catch(PDOException $e){
+            } 
+            else
+            {
+                return '{"success": "false", "msg": "Wrong password"}';
+            }   
+         } 
+         catch(PDOException $e){
             echo '{"error": {"text": '.$e->getMessage().'}';
         }
     });

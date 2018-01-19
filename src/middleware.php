@@ -58,7 +58,14 @@ $app->add(new \Slim\Middleware\JwtAuthentication([
 ]));
 
 
-
+$app->add(new \Tuupola\Middleware\CorsMiddleware([
+    "origin" => ["*"],
+    "methods" => ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    "headers.allow" => ["Accept", "Content-Type"],
+    "headers.expose" => [],
+    "credentials" => false,
+    "cache" => 0,
+]));
 
 
 
